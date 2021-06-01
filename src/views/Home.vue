@@ -27,7 +27,7 @@ export default {
   },
 
   mounted(){
-    //this.getCoins();
+    this.getCoins();
   }
 }
 </script>

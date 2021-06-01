@@ -12,5 +12,10 @@
 }
 #App{
   padding: 0 10%;
+  background-color: #171718;
+}
+a{
+  color: inherit;
+  text-decoration: none;
 }
 </style>

@@ -22,6 +22,9 @@ export default {
     display: flex;
     align-items: center;
     width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
 
     input{
       background: #222531;
