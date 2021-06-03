@@ -1,9 +1,10 @@
 <template>
     <div>
-        <p v-if="coinList">
+        <p v-if="filteredCoins" class="coin-list">
             <Coin 
-                v-for="coin in coinList" 
+                v-for="coin in filteredCoins" 
                 :key="coin.id"
+                :id="coin.id"
                 :name="coin.name"
                 :price="coin.current_price" 
                 :symbol="coin.symbol"
@@ -25,6 +26,14 @@ export default {
     components: {
         Coin
     },
+    data(){
+        return{
+            filteredCoins: undefined
+        }
+    },
+    props: {
+        searchText: String
+    },
 
     computed: {
         ...mapState('coins', {
@@ -34,7 +43,12 @@ export default {
     },
 
     watch: {
-
+        searchText(newValue){
+            this.filteredCoins = this.coinList.filter(coin => coin.name.toLowerCase().includes(newValue));
+        },
+        coinList(){
+            this.filteredCoins = this.coinList;
+        }
     }
 
 
@@ -44,6 +58,12 @@ export default {
 <style lang="scss" scoped>
 div{
     height: 100%;
+
+    .coin-list{
+        padding-bottom: 60px;
+        min-height: 70vh;
+    }
+
     .loader{
         position: relative;
         text-align: center;

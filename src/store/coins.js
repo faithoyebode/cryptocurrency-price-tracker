@@ -32,10 +32,10 @@ export default {
     },
 
     actions: {
-        async getCoins({commit}){
+        async getCoins({ commit }){
             try{
                 commit(COINS_LIST_REQUEST);
-                const data = await axios.get(`${process.env.VUE_APP_COINS_LIST_URL}?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false`);
+                const data = await axios.get(`${process.env.VUE_APP_COINS_LIST_URL}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false`);
                 commit(COINS_LIST_SUCCESS, data.data);
             }catch(e){
                 commit(COINS_LIST_ERROR);

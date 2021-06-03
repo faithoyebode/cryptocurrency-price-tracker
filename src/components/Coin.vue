@@ -1,4 +1,5 @@
 <template>
+    <router-link :to="{name: 'Coin', params: { id: id }}">
     <div  class="coin_container">
         <div class="coin_row">
             <div class="coin">
@@ -21,6 +22,7 @@
             </p>
         </div>
     </div>
+    </router-link>
 </template>
 
 <script>
@@ -33,7 +35,8 @@ export default {
         marketCap: Number,
         volume: Number,
         image: String,
-        priceChange: Number
+        priceChange: Number,
+        id : String
     },
     computed: {
         transformedPrice(){
